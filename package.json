@@ -1,13 +1,13 @@
 {
   "name": "me-api",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "jsramverkV2023(course2019)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
-    "process": "pm2 start app.js --name me-api", 
-    "stopProcess" : "pm2 stop app.js --name me-api",
+    "process": "pm2 start app.js --name me-api",
+    "stopProcess": "pm2 stop app.js --name me-api",
     "production": "NODE_ENV='production' node app.js"
   },
   "author": "jsramverk&yso",
@@ -21,4 +21,3 @@
     "sqlite3": "^5.1.6"
   }
 }
-
