@@ -1,0 +1,141 @@
+var fetchCall = function(
+          dataObj,
+          url,
+          method,
+          callback,
+          token = null,
+          // maxTime = 5000
+      ) {
+        var result; // The result data
+        var res; // The result
+        var theBody; // The body
+
+        // Fetch body
+        theBody = {
+            body: JSON.stringify(dataObj),
+            headers: {
+                'content-type': 'application/json',
+                'x-access-token': token
+            },
+            method: method,
+            signal: app.ajax.signal // Controller signal for aborting fetch
+        };
+
+        if (method == 'GET') {
+            theBody = {
+                headers: {
+                    'content-type': 'application/json',
+                    'x-access-token': token
+                },
+                method: method,
+                signal: app.ajax.signal // Controller signal for aborting fetch
+            };
+        }
+
+        fetch(url, theBody)
+        .then(function (response) {
+
+            // Return response
+            return response.json();
+
+        }).then(function(result) {
+            // console.log(result);
+            var res;// The result
+
+            if (result.errors) {
+                // console.log('Error response: ');
+                // console.log(result.errors.title);
+                // console.log(result.errors.detail);
+
+                if (result.errors.status == 500) {
+                    res = "Status 500, database error. ";
+                    res += "Data not accepted. Perhaps a duplicate.";
+                    // res += result.errors.title;
+                }
+
+                if (result.errors.status == 401) {
+                    res = "Status 401, database error. ";
+                    res += result.errors.title;
+                }
+            }
+
+            if (result.data) {
+                res = result.data.message;
+            }
+
+            // Send callback result
+            callback(res, result);
+        });
+    }
+
+
+     fetchCall = function(
+        dataObj,
+        url,
+        method,
+        callback,
+        token = null,
+        // maxTime = 5000
+    ) {
+      var result; // The result data
+      var res; // The result
+      var theBody; // The body
+
+      // Fetch body
+      theBody = {
+          body: JSON.stringify(dataObj),
+          headers: {
+              'content-type': 'application/json',
+              'x-access-token': token
+          },
+          method: method,
+          signal: app.ajax.signal // Controller signal for aborting fetch
+      };
+
+      if (method == 'GET') {
+          theBody = {
+              headers: {
+                  'content-type': 'application/json',
+                  'x-access-token': token
+              },
+              method: method,
+              signal: app.ajax.signal // Controller signal for aborting fetch
+          };
+      }
+
+      fetch(url, theBody)
+      .then(function (response) {
+
+          // Return response
+          return response.json();
+
+      }).then(function(result) {
+          // console.log(result);
+          var res;// The result
+
+          if (result.errors) {
+              // console.log('Error response: ');
+              // console.log(result.errors.title);
+              // console.log(result.errors.detail);
+
+              if (result.errors.status == 500) {
+                  res = "Status 500, database error. ";
+                  res += "Data not accepted. Perhaps a duplicate.";
+                  // res += result.errors.title;
+              }
+
+              if (result.errors.status == 401) {
+                  res = "Status 401, database error. ";
+                  res += result.errors.title;
+              }
+          }
+
+          if (result.data) {
+              res = result.data.message;
+          }
+
+          // Send callback result
+          callback(res, result);
+      });
+  }
+

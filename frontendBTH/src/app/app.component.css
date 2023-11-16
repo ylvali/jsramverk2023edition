@@ -1,0 +1,85 @@
+
+/* Ylva app */
+
+
+.header{
+  background-color: black;
+  width: 98.5%;
+  min-height: 200px;
+  color: white;
+  font-size: 70px;
+  text-align: center;
+  padding: 10px;
+}
+
+
+.routerView {
+  background-color: white;
+  width: 60%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+
+.navigation {
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  word-spacing: 4px;
+  height: 30px;
+}
+
+
+.navigation a {
+  text-decoration: none;
+  color: gray;
+  background-color: black;
+  padding: 5px;
+}
+
+
+.navigation a:hover {
+  color: white;
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+
+.routerView {
+  width: 70%;
+}
+
+.navigation {
+  width: 90%;
+}
+
+}
+
+
+@media screen and (max-width: 700px) {
+
+.routerView {
+  width: 90%;
+}
+
+}
+
+@media screen and (max-width: 330px) {
+
+.header {
+  font-size: 50px;
+}
+
+.routerView {
+  width: 100%;
+}
+
+.navigation {
+  width: 100%;
+}
+
+}

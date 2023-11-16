@@ -1,0 +1,169 @@
+
+h1 {
+  text-align: center;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+#theForm {
+  width: 80%;
+  min-height: 500px;
+  background-image: url("bground.png");
+  background-color: black;
+  color: white;
+  border-radius: 350px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0px;
+  overflow: hidden;
+}
+
+#textLayer {
+  width: 90%;
+  min-height: 600px;
+  background-color: black;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+#inputBoxes {
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.2em;
+  padding:20px;
+}
+
+.input {
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.output {
+  font-size: 0.7em;
+  color: red;
+  text-align: right;
+  width: 80%;
+  padding: 3px;
+}
+
+#birthDay {
+  width: 100%;
+  margin: 0 auto;
+  border-color: white;
+  border-style: groove;
+}
+
+.bdayB {
+  width: 25%;
+  float: left;
+  min-height: 100px;
+}
+
+.changeDate {
+  cursor: pointer;
+  font-size: 1.2em;
+  width: 15px;
+  border-radius: 20px;
+  background-color: gray;
+  margin: 0 auto;
+}
+
+.changeDate:hover {
+  color: red;
+}
+
+#lastBox {
+}
+
+.submitBtn {
+  clear: both;
+  margin: 0 auto;
+  background-color:  red;
+  width: 25%;
+  padding: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 25px;
+  margin-top: 25%;
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  background-color: gray;
+  color: black;
+}
+
+#inputPres {
+  width: 100%;
+  min-height: 200px;
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+
+.smallCap {
+  font-size: 0.7em;
+  text-transform: uppercase;
+}
+
+
+
+/* Responsive Styles */
+@media screen and (max-width: 1000px) {
+
+#theForm {
+  width: 90%;
+  height: auto;
+}
+
+#textLayer {
+  width: 90%;
+  min-height: 450px;
+}
+
+#inputBoxes {
+  width: 70%;}
+}
+
+
+
+@media screen and (max-width: 550px) {
+
+  #textLayer {
+    min-height: 550px;
+    padding: 30px;
+  }
+}
+
+
+@media screen and (max-width: 450px) {
+
+    #textLayer {
+      min-height: 550px;
+      padding: 30px;
+      width: 90%;
+    }
+
+    #inputBoxes {
+      padding-left: 0px;
+      font-size: 0.8em;
+    }
+
+    .bdayB  {
+      font-size: 0.8em;
+      width: 30%;
+    }
+
+    #lastBox {
+      clear: both;
+      float: none;
+      margin: 0 auto;
+      width: 50%;
+    }
+
+}

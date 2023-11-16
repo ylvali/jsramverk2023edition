@@ -1,0 +1,38 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="header">
+  <p> ::: App ::: </p>
+</div>
+
+<div class="navigation">
+    <a  [routerLink]="['']">
+      About
+    </a>
+
+    <a  [routerLink]="['form']">
+      Form
+    </a>
+
+    <a  [routerLink]="['api']">
+      API
+    </a>
+
+</div>
+
+<div class="navigation">
+
+  <a  [routerLink]="['reports/week/1']">
+    Report1
+  </a>
+
+  <a  [routerLink]="['reports/week/2']">
+    Report2
+  </a>
+
+</div>
+
+
+<div class ="routerView">
+  <!-- The view is injected here -->
+  <router-outlet></router-outlet>
+</div>
