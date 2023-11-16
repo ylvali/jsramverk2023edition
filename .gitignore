@@ -1,2 +1,3 @@
 *.sqlite
-node_modules
+frontendBTH/node_modules
+backendBTH/node_modules
