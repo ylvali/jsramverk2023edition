@@ -267,7 +267,7 @@ export class FormComponent {
 
   callback1(res) {
     this.response = res;
-  }
+  } 
 
   getApiData1(): void {
     var thisObj = this;

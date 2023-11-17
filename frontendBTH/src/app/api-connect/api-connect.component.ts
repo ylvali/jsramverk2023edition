@@ -80,14 +80,16 @@ export class ApiConnectComponent {
     }
 
 
+    // FORM REQUESTS WITH CONTROL
+    // These form request use control
     theForm1(weekNr) {
       this.route4(weekNr);
       this.value1_feedback = 'Data request';
     }
 
     theForm2(title, text, token) {
-      var header = {};
-      header = {'Content-Type':':application/x-www-form-urlencoded', 'x-access-token':token}
+      // var header = {};
+      // header = {'Content-Type':':application/x-www-form-urlencoded', 'x-access-token':token}
       console.log('header: '+token);
 
       this.route5(title, text, token);
@@ -157,7 +159,17 @@ export class ApiConnectComponent {
       console.log(result);
 
       // console.log(jsonObj.data)
-      // thisObj.response = 'Success';
+      thisObj.response = 'Success';
+
+      // thisObj.value1_feedback = jsonObj.data[0].data;
+    }
+
+    callback6(thisObj, res, result) {
+      // var jsonObj = JSON.parse(res);
+      console.log(result);
+
+      // console.log(jsonObj.data)
+      thisObj.response = 'Success';
 
       // thisObj.value1_feedback = jsonObj.data[0].data;
     }
@@ -201,6 +213,14 @@ export class ApiConnectComponent {
       params = {"title":title, "data1":text};
       // params = '"title='+title+'&data1='+text+'"'; // string for params
       this.callAPi2('POST', url, this.callback5, params, token);
+    }
+
+    route6(email, password, name=null, birthday=null) {
+      var url = 'https://me-api.ysojs.se/users/register';
+      var params;
+      params = {"email":email, "password":password, "name":name, "birthday":birthday};
+      // params = '"title='+title+'&data1='+text+'"'; // string for params
+      this.callAPi2('POST', url, this.callback6, params);
     }
 
 }

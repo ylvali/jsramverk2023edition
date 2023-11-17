@@ -48,6 +48,21 @@
     </div>
 </div>
 
+
+<div class="theForm">  
+    <div id="inputBoxes">
+        Email: <input #box5 type="text" class='input'>
+
+        Password: <input #box6 type="text" class='input'>
+
+        Name: <input #box7 type="text" class='input'>
+
+        Birthday: <input #box8 type="date" class='input'>
+            
+        <div (click)="route6(box5.value, box6.value, box7.value, box8.value)" class="submitBtn"> Submit </div>
+    </div>
+</div>
+
         <!-- <div (click)="theForm(box1.value, box2.value, box3.value)" class="submitBtn"> Submit </div> -->
 
     <!-- <div (click)="theForm(box1.value, box2.value, box3.value)" class="submitBtn"> Submit </div> -->
