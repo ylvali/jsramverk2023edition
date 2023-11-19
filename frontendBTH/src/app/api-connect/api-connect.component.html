@@ -10,6 +10,7 @@
     <div (click)="route1()" class="submitBtn"> Introduction  </div>
     <div (click)="route2()" class="submitBtn"> Token  </div>
     <div (click)="route3()" class="submitBtn"> All users  </div>
+    <div (click)="route8()" class="submitBtn"> All logged on  </div>
 </div>
 
 <div class="response">
@@ -28,8 +29,8 @@
         Week: <input #box1 (blur) = "week(box1.value)" type="number" class='input'>
         <div class='output'> <p class="smallCap"> </p> {{value1_feedback}} <br/></div>
         <div (click)="theForm1(box1.value)" class="submitBtn"> Submit </div>
+        <div class="response"><p> {{response2}} </p></div>
     </div>
-    <div class="response"><p> {{response2}} </p></div>
 </div>
 
 
@@ -60,6 +61,18 @@
         Birthday: <input #box8 type="date" class='input'>
             
         <div (click)="route6(box5.value, box6.value, box7.value, box8.value)" class="submitBtn"> Submit </div>
+    </div>
+</div>
+
+
+<!-- Login -->
+<div class="theForm">  
+    <div id="inputBoxes">
+        Email: <input #box9 type="text" class='input'>
+
+        Password: <input #box10 type="text" class='input'>
+            
+        <div (click)="route7(box9.value, box10.value)" class="submitBtn"> Login </div>
     </div>
 </div>
 

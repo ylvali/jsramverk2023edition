@@ -49,6 +49,7 @@ export class ApiConnectComponent {
       return true;
     }
 
+    // SET VALUES
     setText(text1) {
       if(!String(text1)) {
         this.value2_feedback = 'Not a text';
@@ -88,8 +89,6 @@ export class ApiConnectComponent {
     }
 
     theForm2(title, text, token) {
-      // var header = {};
-      // header = {'Content-Type':':application/x-www-form-urlencoded', 'x-access-token':token}
       console.log('header: '+token);
 
       this.route5(title, text, token);
@@ -98,8 +97,6 @@ export class ApiConnectComponent {
 
     // Call the api routes
     callAPi2(method, url, callback, dataObj = null, token=null) {
-        // var res = this.getCall();
-    // console.log(res);
       var obj1 = this;
       if (!dataObj) {
         dataObj = {};
@@ -109,14 +106,12 @@ export class ApiConnectComponent {
 
     // Call the api routes
     callAPi1(method, url, callback, params = null, header = null) {
-      // var res = this.getCall();
-      // console.log(res);
       var obj1 = this;
       this.ApiCallService.reqCall(method, url, callback, obj1, params, header);
     }
 
+    // THE CALLBACKS
     callback1(thisObj, res, result) {
-      // console.log(thisObj);
       console.log(res);
 
       console.log(result);
@@ -132,10 +127,10 @@ export class ApiConnectComponent {
       console.log(res);
       console.log(result);
 
-
       thisObj.response = result.data.token;
     }
 
+    // All users / all logged on
     callback3(thisObj, res, result) {
       console.log(result.data);
       thisObj.users = result.data.data;
@@ -147,46 +142,41 @@ export class ApiConnectComponent {
     callback4(thisObj, res, result) {
       console.log(result.data.data[0].data);
       thisObj.response2 = result.data.data[0].data;
-
-      // console.log(jsonObj.data[0].data)
-      // thisObj.response = jsonObj.data[0].data;
-
-      // thisObj.value1_feedback = 'Call complete';
     }
 
     callback5(thisObj, res, result) {
-      // var jsonObj = JSON.parse(res);
       console.log(result);
-
-      // console.log(jsonObj.data)
       thisObj.response = 'Success';
-
-      // thisObj.value1_feedback = jsonObj.data[0].data;
     }
 
     callback6(thisObj, res, result) {
-      // var jsonObj = JSON.parse(res);
       console.log(result);
-
-      // console.log(jsonObj.data)
       thisObj.response = 'Success';
+    }
 
-      // thisObj.value1_feedback = jsonObj.data[0].data;
+    callback7(thisObj, res, result) {
+      console.log(result);
+      thisObj.response = 'Success';
+    }
+
+    callback8(thisObj, res, result) {
+      console.log(result);
+      thisObj.response = 'Success';
     }
 
     // Using the observable class for users
-    getUsers():Observable<User[]> {
-      const users1 = of(this.users);
-      return users1;
-    }
+    // getUsers():Observable<User[]> {
+    //   const users1 = of(this.users);
+    //   return users1;
+    // }
 
-    returnUsers2(): void {
-      this.getUsers().subscribe(users=>this.users=users);
-    }
+    // returnUsers2(): void {
+    //   this.getUsers().subscribe(users=>this.users=users);
+    // }
 
-    returnUsers(): void {
-      this.ApiCallService.getUsers().subscribe(users=>this.users=users);
-    }
+    // returnUsers(): void {
+    //   this.ApiCallService.getUsers().subscribe(users=>this.users=users);
+    // }
 
     // This route calls the API server with the first callback. 
     // The callback is modified for the data.
@@ -211,16 +201,31 @@ export class ApiConnectComponent {
       var url = 'https://me-api.ysojs.se/reports/add';
       var params;
       params = {"title":title, "data1":text};
-      // params = '"title='+title+'&data1='+text+'"'; // string for params
       this.callAPi2('POST', url, this.callback5, params, token);
     }
 
+    // register a user
     route6(email, password, name=null, birthday=null) {
       var url = 'https://me-api.ysojs.se/users/register';
       var params;
       params = {"email":email, "password":password, "name":name, "birthday":birthday};
-      // params = '"title='+title+'&data1='+text+'"'; // string for params
       this.callAPi2('POST', url, this.callback6, params);
+    }
+
+    // login user
+    route7(email, password) {
+      var url = 'https://me-api.ysojs.se/users/login';
+      var params;
+      params = {"email":email, "password":password};
+      this.callAPi2('POST', url, this.callback7, params);
+    }
+
+    // allLoggedOn
+    route8() {
+      var url = 'https://me-api.ysojs.se/users/allLoggedOn';
+      var params;
+      params = {};
+      this.callAPi2('POST', url, this.callback3, params);
     }
 
 }

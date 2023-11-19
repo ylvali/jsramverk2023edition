@@ -12,12 +12,14 @@ import { HttpReqComponent } from './http-req/http-req.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ApiConnectComponent } from './api-connect/api-connect.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   { path: 'reports/week/1', component: ReportComponent },
   { path: 'reports/week/2', component: Report2Component },
   { path: '', component: AboutComponent },
   { path: 'form', component: FormComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'api', component: ApiConnectComponent }
   ]
 
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     AboutComponent,
     FormComponent,
     HttpReqComponent,
-    ApiConnectComponent
+    ApiConnectComponent,
+    LoginComponent
     ],
   imports: [
     HttpClientModule,

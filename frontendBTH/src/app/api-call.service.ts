@@ -24,20 +24,19 @@ export class ApiCallService {
 
   public response1 = '';
 
-  users : User[] = [];
+  // users : User[] = [];
 
-    // ------------------------------- Methods
-    // Initial call onInit
-    ngOnInit(): void {
-      // this.getHeroes();
-    };
+  // ------------------------------- Methods
+  // Initial call onInit
+  // ngOnInit(): void {
+  // };
 
-    getUsers():Observable<User[]> {
-      const users1 = of(this.users);
-      return users1;
-    }
+  // getUsers():Observable<User[]> {
+  //   const users1 = of(this.users);
+  //   return users1;
+  // }
 
-  fetchCall = function(
+  fetchCall = function( 
       dataObj,
       url,
       method,
