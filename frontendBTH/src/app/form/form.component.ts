@@ -22,7 +22,7 @@ export class FormComponent {
   apiData: apiData[] = [];
 
   ngOnInit(): void {
-    this.getApiData1();
+    // this.getApiData1();
   }
 
 
@@ -39,7 +39,7 @@ export class FormComponent {
   value2_feedback = "";
   value3_feedback = "";
   response = "";
-  response2 = "test";
+  response2 = "";
 
 
   // Valid flag : valid if all input is correct
@@ -251,28 +251,41 @@ export class FormComponent {
       this.value2 = value2;
       this.value3 = value3;
       this.value4 = this.theSelectedDate.toString();
+
+      console.log('Inserting the form values');
+      this.setNewDataApi( this.value2, this.value3, this.value1, this.value4);
+
     } else {
       this.feedback = "Please fill in all values in a correct way";
     }
 
-    console.log('Inserting the form values');
-    console.log('Testing http request');
-
-    // var res = this.getCall();
-    // console.log(res);
-    var thisObj = this;
-    this.response = this.ApiCallService.reqCall('get','https://me-api.ysojs.se', this.callback1, thisObj);
-    console.log(this.response);
   }
 
-  callback1(res) {
-    this.response = res;
+  callback1(thisObj, res, result) {
+    console.log(result);
+    // this.response = res;
+    if (result.data != undefined) {
+      if (result.data.msg != undefined) {
+        thisObj.userLoggedOn = true;
+        thisObj.feedback= result.data.msg;
+      }
+    }
+
+    if (result.error != undefined) {
+        // thisObj.userLoggedOn = false;
+        console.log(result.error);
+        thisObj.feedback = 'Duplicate input or other error.';
+    }
   } 
 
-  getApiData1(): void {
+  setNewDataApi(email, password, name = null, birthday = null): void { 
     var thisObj = this;
+    var url = 'https://me-api.ysojs.se/users/register';
+    var params;
+    params = {"email":email, "password":password, "name":name, "birthday":birthday};
+    var token = null;
 
-    this.ApiCallService.reqCall('get','https://me-api.ysojs.se', this.callback1, thisObj);
+    this.ApiCallService.fetchCall(params, url, 'POST', this.callback1, token, thisObj);
   }
 
   // getApiData2(): void {
