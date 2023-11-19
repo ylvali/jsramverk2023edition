@@ -1,0 +1,13 @@
+<div class="theForm">  
+    <div id="inputBoxes">
+        Email: <input #box1 type="text" class='input'>
+
+        Password: <input #box2 type="text" class='input'>
+            
+        <div (click)="login(box1.value, box2.value)" class="submitBtn"> Login </div>
+
+        <br>
+
+        {{response}}
+    </div>
+</div>
