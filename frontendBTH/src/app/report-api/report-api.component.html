@@ -1,0 +1,41 @@
+<h1> Reports </h1>
+{{response1}}
+
+<div class="theForm">  
+    <div id="inputBoxes">
+        Week: <input #box1 type="number" class='input'>
+        <div (click)="route1(box1.value)" class="submitBtn"> Submit </div>
+        <div class="response"><p> {{response2}} </p></div>
+    </div>
+</div>
+
+<!-- <div class="reports">  
+    <h2>  {{title}} </h2>
+    <p> {{reportData}} </p>
+</div> -->
+
+<h2> Reports </h2>
+<div class="reports">  
+    <h3>Title</h3>
+    <p> {{title}} </p>
+
+    <h3>ReportData</h3>
+    <p>{{reportData}}</p>
+</div>
+
+<h3> Edit / add </h3>
+<div class="reports">  
+
+    Title: <input #input1 type="text" class='input' value={{title}}>
+    <!-- Text: <input #input2 type="textarea" rows="5" cols="33" class='input' value={{reportData}}> -->
+    <!-- <textarea id="input3" rows="5" cols="30" #input3>{{reportData}}</textarea> -->
+    Text: <textarea id="input2" rows="5" cols="30" value={{reportData}} #input2>{{reportData}}</textarea>
+
+    <!-- Text: <textarea ng-model="reportData"></textarea> -->
+    <!-- Text: <textarea #input2 type="textarea" value={{reportData}}>{{reportData}}</textarea>  -->
+    
+    <div (click)="route5(input1.value, input2.value)" class="submitBtn"> Add </div>
+    <!-- <div (click)="route3(input1.value, input2.value, input3.value)" class="submitBtn"> Edit </div> -->
+
+</div>
+
