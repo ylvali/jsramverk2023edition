@@ -5,9 +5,11 @@
         Password: <input #box2 type="text" class='input'>
             
         <div (click)="login(box1.value, box2.value)" class="submitBtn"> Login </div>
-
+        <div (click)="logOut()" class="submitBtn"> Logout </div>
         <br>
 
         {{response}}
+
+
     </div>
 </div>

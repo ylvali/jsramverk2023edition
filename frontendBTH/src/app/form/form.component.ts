@@ -276,12 +276,14 @@ export class FormComponent {
         console.log(result.error);
         thisObj.feedback = 'Duplicate input or other error.';
     }
+    
   } 
 
   setNewDataApi(email, password, name = null, birthday = null): void { 
     var thisObj = this;
     var url = 'https://me-api.ysojs.se/users/register';
     var params;
+
     params = {"email":email, "password":password, "name":name, "birthday":birthday};
     var token = null;
 

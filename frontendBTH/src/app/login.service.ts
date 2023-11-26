@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 
 import { ApiCallService } from './api-call.service';
 
+import { User } from './User';
+
+import { Router } from '@angular/router';
+
+
 
 /* 
 
@@ -27,43 +32,57 @@ export class LoginService {
 
   response = '';
 
+  users : User[] = [];
+
   constructor( 
-    private ApiCallService: ApiCallService) { }
+    private ApiCallService: ApiCallService,
+    private router: Router) { }
 
     // Get user on
     getUserOn() {
       if (this.userLoggedOn) {
-        return this.userOn;
+        return this.users;
       }
       return false;
     }
 
-    // Call the api
-    callAPi(method, url, callback, dataObj = null, token=null) {
-      var obj1 = this;
-      if (!dataObj) {
-        dataObj = {};
-      }
-      this.ApiCallService.fetchCall(dataObj , url, method, callback, token, obj1);
+    // Get all users
+    getUsers() {
+        return this.users;
+    }
+
+    // Log out user
+    logOut() {
+      this.userLoggedOn = false;
+      this.response = 'Logged out';
     }
 
     // Callback 
-    callback(thisObj, res, result) {
+    callback1(thisObj, res, result) {
       console.log(result);
+      console.log(res);
       // thisObj.response = result.data.msg;
 
       if (result.data != undefined) {
         if (result.data.msg != undefined) {
           thisObj.userLoggedOn = true;
-          thisObj.response = result.data.msg;
-          this.userLoggedOn = true;
+          thisObj.response = 'User logged on';
+          thisObj.userLoggedOn = true;
+          thisObj.users = {name:'loggedOn'};
+
+          console.log(thisObj.users)
+
+          thisObj.router.navigate(['reportApi']);
         }
       }
 
       if (result.error != undefined) {
           // thisObj.userLoggedOn = false;
           thisObj.response = result.error;
-          this.userOn = {};
+          thisObj.userOn = {};
+          thisObj.users = {name:'error'};
+
+          console.log(thisObj.users)
       }
     }
 
@@ -71,8 +90,11 @@ export class LoginService {
     login(email, password) {
       var url = 'https://me-api.ysojs.se/users/login';
       var params;
+      var token = null;
+      var obj1 = this;
       params = {"email":email, "password":password};
-      this.callAPi('POST', url, this.callback, params);
+
+      this.ApiCallService.fetchCall(params ,url, 'POST', this.callback1, token, obj1);
       this.userOn = {"email":email}
     }
 

@@ -16,10 +16,18 @@ export class LoginComponent {
     private LoginService: LoginService,) { }
 
     response = '';
-    loggedOn = false;
+
+    getResponse() {
+      this.response = this.LoginService.response;
+    }
+
+    logOut() {
+      this.LoginService.logOut();
+      this.getResponse();
+    }
 
     login(email, password) {
       this.LoginService.login(email, password);
-      this.response = this.LoginService.response;
+      this.getResponse();
     }
 }

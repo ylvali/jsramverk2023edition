@@ -4,12 +4,6 @@ import { ApiCallService } from '../api-call.service';
 
 import { User } from '../User';
 
-import { Observable, of } from 'rxjs';
-
-
-
-import { apiData } from '../apiData';
-import { count } from 'rxjs';
 
 
 
@@ -101,7 +95,7 @@ export class ApiConnectComponent {
       if (!dataObj) {
         dataObj = {};
       }
-      this.ApiCallService.fetchCall(dataObj , url, method, callback, token, obj1);
+      this.ApiCallService.fetchCall(dataObj ,url, method, callback, token, obj1);
     }
 
     // Call the api routes
@@ -178,12 +172,14 @@ export class ApiConnectComponent {
     //   this.ApiCallService.getUsers().subscribe(users=>this.users=users);
     // }
 
+    // Main route
     // This route calls the API server with the first callback. 
     // The callback is modified for the data.
     route1() {
       this.callAPi2('GET', 'https://me-api.ysojs.se', this.callback1);
     }
 
+    // Token
     route2() {
       this.callAPi2('GET', 'https://me-api.ysojs.se/token', this.callback2);
     }
@@ -197,9 +193,11 @@ export class ApiConnectComponent {
       this.callAPi2('GET', url, this.callback4);
     }
 
+    // Register a text
     route5(title, text, token) {
       var url = 'https://me-api.ysojs.se/reports/add';
       var params;
+
       params = {"title":title, "data1":text};
       this.callAPi2('POST', url, this.callback5, params, token);
     }
