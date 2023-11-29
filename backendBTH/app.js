@@ -53,7 +53,7 @@ app.use((req, res, next) => {
 // Using an environmental variable
 // JWT secret set in the environment : server & process 
 // (Change longsecret to something of many characters & difficult)
-// $export JWT_SECRET='longsecret' // run this in the terminal where the app is run
+// $export JWT_SECRET='R_[/_&g2Upsl5I3]uQ]K<2o|J' // run this in the terminal where the app is run
  const jwt = require('jsonwebtoken');
  const payload = { email: "user@example.com" };
 
