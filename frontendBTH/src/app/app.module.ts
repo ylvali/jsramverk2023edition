@@ -15,6 +15,7 @@ import { ApiConnectComponent } from './api-connect/api-connect.component';
 import { LoginComponent } from './login/login.component';
 import { ReportsComponent } from './reports/reports.component';
 import { ReportAPIComponent } from './report-api/report-api.component';
+import { SeeReportsComponent } from './see-reports/see-reports.component';
 
 const appRoutes: Routes = [
   { path: 'reports/week/1', component: ReportComponent },
@@ -23,7 +24,9 @@ const appRoutes: Routes = [
   { path: 'form', component: FormComponent },
   { path: 'login', component: LoginComponent },
   { path: 'api', component: ApiConnectComponent },
-  { path: 'reportApi', component: ReportAPIComponent }
+  { path: 'reportApi', component: ReportAPIComponent },
+  { path: 'seeReports', component: SeeReportsComponent }
+
 
   ]
 
@@ -38,7 +41,8 @@ const appRoutes: Routes = [
     ApiConnectComponent,
     LoginComponent,
     ReportsComponent,
-    ReportAPIComponent
+    ReportAPIComponent,
+    SeeReportsComponent
     ],
   imports: [
     HttpClientModule,

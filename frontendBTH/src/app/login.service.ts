@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 
 
 /* 
-
 The login will call the API and log in a user.
 This logs on the user on the client save, and saves it as userOn.
 It also logs in the user in the database via API. 
@@ -19,7 +18,6 @@ Only one at a time logged into the client.
 This service provides a boolean if a user is logged on (and user email on request).
 Thus can be injected as a service to other components.
 And then, check if a user is logged on or not before doing some action.
-
 */
 
 @Injectable({
@@ -97,5 +95,4 @@ export class LoginService {
       this.ApiCallService.fetchCall(params ,url, 'POST', this.callback1, token, obj1);
       this.userOn = {"email":email}
     }
-
 }

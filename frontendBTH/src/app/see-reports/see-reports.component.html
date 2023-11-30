@@ -1,0 +1,15 @@
+
+<h2> Reports </h2>
+<ul class="reports">
+    <li *ngFor="let report of reports">
+        <h3><span [innerHTML]='report.title'></span> </h3>
+        <b><span [innerHTML]='report.id'></span></b>
+        <p><span [innerHTML]='report.data'></span></p>
+
+        <!-- <h3>{{report.title}} </h3> -->
+        <!-- <b> {{report.id}} </b> -->
+        <!-- <p>{{reports}}</p> -->
+
+    </li>
+</ul>
+{{response}}

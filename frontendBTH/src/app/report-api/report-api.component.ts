@@ -28,6 +28,7 @@ export class ReportAPIComponent {
     ) { }
 
     // Check if a user is online
+    // Get token
     ngOnInit(): void {
       this.userOnline();
       this.route4();
@@ -50,8 +51,9 @@ export class ReportAPIComponent {
       console.log('User online:'+this.userOn);
     }
 
+    // CALLBACKS
     // Get response data
-    callback (thisObj, res, result) {
+    callback(thisObj, res, result) {
       console.log(result);
       thisObj.reponse2 = result.data.msg;
 
@@ -65,25 +67,32 @@ export class ReportAPIComponent {
       thisObj.title = result.data.data[0].title;
       thisObj.reportData = result.data.data[0].data;
       result.data.data[0].data;
-
     }
 
     // Set the token 
     callback2(thisObj, res, result) { 
-      console.log(res);
-      console.log(result);
-
+      console.log('Setting the token:'+result.data.token)
       thisObj.token = result.data.token;
     }
 
-    // Register a text
+    // Register a text & edit a text
     callback3(thisObj, res, result) { 
       console.log('Callback3');
       console.log(result);
-
-      //thisObj.token = result.data.token;
+    
+      if (result.data != undefined) {
+        if (result.data.msg != undefined) {
+          thisObj.response2 = result.data.msg;
+          thisObj.router.navigate(['seeReports']);
+        }
+      }
+      if (result.error != undefined) {
+          thisObj.response2 = result.error;
+          thisObj.response2 = 'Not completed, duplicate title?';
+      }
     }
 
+    // ROUTES
     // Display text from week nr
     route1(weekNr) {
       var url = 'https://me-api.ysojs.se/reports/week/' + weekNr;
@@ -134,10 +143,20 @@ export class ReportAPIComponent {
     //   this.ApiCallService.fetchCall();
     // }
 
+
     // Register a text
-    route5(title, text, token=this.token) {
+    route5 (title, text, token=this.token) {
       console.log('Add a text: '+text+' title: '+title+' token: '+token);
       var url = 'https://me-api.ysojs.se/reports/add';
+      var obj1 = this;
+      var params = {"title":title, "data1":text};
+      this.ApiCallService.fetchCall(params, url, 'POST', this.callback3, token, obj1);
+    }
+
+    // Edit a text
+    route6 (title, text, token=this.token) {
+      console.log('Add a text: '+text+' title: '+title+' token: '+token);
+      var url = 'https://me-api.ysojs.se/reports/edit';
       var obj1 = this;
       var params = {"title":title, "data1":text};
       this.ApiCallService.fetchCall(params, url, 'POST', this.callback3, token, obj1);
