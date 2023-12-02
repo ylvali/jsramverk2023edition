@@ -184,11 +184,11 @@ export class ReportAPIComponent {
     }
 
     // Delete a text
-    route7 (title, data='-', token=this.token) {
+    route7 (title, token=this.token) {
       console.log('Delete title: '+title);
       var url = 'https://me-api.ysojs.se/reports/delete';
       var obj1 = this;
-      var params = {"title":title, "data1":data};
+      var params = {"title":title};
       this.response2 = ''; // Empty response text
       this.ApiCallService.fetchCall(params, url, 'POST', this.callback4, token, obj1);
     }
