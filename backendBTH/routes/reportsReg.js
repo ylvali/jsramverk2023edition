@@ -167,6 +167,78 @@ router.post("/add",
 
     }
 
+    router.post("/delete", 
+    (req, res, next) => checkToken(req, res, next),
+    (req, res) => deleteReport(req, res));
+    console.log('Delete report')
+
+
+    function checkToken(req, res, next) {
+        const token2 = req.headers['x-access-token'];
+        console.log('Check token');
+        //console.log(req.body);
+        //console.log('TOKEN2:'+token2);
+
+        jwt.verify(token2, process.env.JWT_SECRET, function(err, decoded) {
+            if (err) {
+                // send error response
+                console.log('error token');
+                res.status(201).json({
+                    data: {
+                        msg: "Error token"
+                    }
+                });
+            }
+
+            if (decoded) {
+                // Valid token send on the request
+                console.log('correct token');
+                next();
+               //console.log(addReport);
+            }
+    });
+    }
+
+    function deleteReport(req, res, next) {
+        console.log('Add report');
+        console.log(req.body); // Gets the req body
+
+        if (!req.body.data1 || !req.body.title) {
+            res.status(400).json({"error":'no title / data'});
+            return;
+        }
+
+        var params;
+        var theSql = "DELETE FROM reports WHERE title = ?";
+        var data = req.body.data1;
+        var title = req.body.title;
+
+        console.log( 'Title: '+title);
+
+        params = [title];
+
+        db.all(theSql, params, (err, rows)=> {
+             if (err) {
+                console.log('Error: '+err.message);
+                res.status(400).json({"error":err.message});
+                return;
+              }
+
+              if (rows) {
+                console.log (rows);
+                console.log('Success: '+rows);
+                
+                const data = {
+                  data: {
+                      msg: 'Success: data registered',
+                      data: rows
+                  }
+                 };
+                 res.json(data);
+              }
+        });
+    }
+
     router.post("/edit", 
     (req, res, next) => checkToken(req, res, next),
     (req, res) => editReport(req, res));
