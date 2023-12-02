@@ -1,80 +1,84 @@
-<h1> Api connect </h1>
-<p> Hardcoded using API http://wwww.me-api.ysojs.se</p>
-<p> Demo connecting to an API on a server, connected to a database.</p>
-<p> The API means entrances to an application that return data or performe some task. 
-    These entrances are made available, like buttons. <br>
-    The backend API server is made with Node.js & express - javascript programming.
-    The frontend which provides the graphical interface, the view and buttons visible, is made with the framework Angular.</p>
+<div class="centerColumn">
+        <h1> Api connect </h1>
+        <p> Hardcoded using API http://wwww.me-api.ysojs.se</p>
+        <p> Demo connecting to an API on a server, connected to a database.</p>
+        <p> The API means entrances to an application that return data or performe some task. 
+            These entrances are made available, like buttons. <br>
+            The backend API server is made with Node.js & express - javascript programming.
+            The frontend which provides the graphical interface, the view and buttons visible, is made with the framework Angular.</p>
 
-<div class="'btns">
-    <div (click)="route1()" class="submitBtn"> Introduction  </div>
-    <div (click)="route2()" class="submitBtn"> Token  </div>
-    <div (click)="route3()" class="submitBtn"> All users  </div>
-    <div (click)="route8()" class="submitBtn"> All logged on  </div>
-</div>
+        <div class="btns">
+            <!-- <div (click)="route1()" class="submitBtn"> Introduction  </div> -->
+            <div (click)="route2()" class="submitBtn"> Token  </div>
+            <div (click)="route3()" class="submitBtn"> All users  </div>
+            <div (click)="route8()" class="submitBtn"> All logged on  </div>
+        </div>
 
-<div class="response">
-    <h2> Response: </h2>
-    <p> {{response}} </p>
-</div>
+        <div class="response">
+            <h2> Response: </h2>
+            <p> {{response}} </p>
+        </div>
 
-<ul class="users">
-    <li *ngFor="let user of users">
-        <b> {{user.name}} </b> {{user.email}}
-    </li>
-</ul>
+        <ul class="users">
+            <li *ngFor="let user of users">
+                <b> {{user.name}} </b> {{user.email}} 
+            </li>
+        </ul>
 
-<div class="theForm">  
-    <div id="inputBoxes">
-        Week: <input #box1 (blur) = "week(box1.value)" type="number" class='input'>
-        <div class='output'> <p class="smallCap"> </p> {{value1_feedback}} <br/></div>
-        <div (click)="theForm1(box1.value)" class="submitBtn"> Submit </div>
-        <div class="response"><p> {{response2}} </p></div>
-    </div>
-</div>
+        <!-- <div class="theForm">  
+            <h3>See reports</h3>
+            <div id="inputBoxes">
+                Week: <input #box1 (blur) = "week(box1.value)" type="number" class='input'>
+                <div class='output'> <p class="smallCap"> </p> {{value1_feedback}} <br/></div>
+                <div (click)="theForm1(box1.value)" class="submitBtn"> Submit </div>
+                <br>
+                <div class="response"><p> {{response2}} </p></div>
+            </div>
+        </div> -->
+<!-- 
+        <div class="theForm">  
+            <h3>See reports</h3>
+            <div id="inputBoxes">
+                Title: <input #box2 (blur) = "setText(box2.value)" type="text" class='input'>
+                <div class='output'> <p class="smallCap"> </p> {{value2_feedback}} <br></div><br>
+
+                Text: <input #box3 (blur) = "setTitle(box3.value)" type="text" class='input'>
+                <div class='output'> <p class="smallCap"> </p> {{value3_feedback}} </div><br>
+
+                Token: <input #box4 (blur) = "setToken(box4.value)" type="text" class='input'>
+                <div class='output'> <p class="smallCap"> </p> {{value4_feedback}} </div><br>
+                    
+                <div (click)="theForm2(box2.value, box3.value, box4.value)" class="submitBtn"> Submit </div>
+            </div>
+        </div>
+
+        <div class="theForm">  
+            <h3>Register</h3>
+            <div id="inputBoxes">
+                Email: <input #box5 type="text" class='input'>
+
+                Password: <input #box6 type="text" class='input'>
+
+                Name: <input #box7 type="text" class='input'>
+
+                Birthday: <input #box8 type="date" class='input'>
+                    
+                <div (click)="route6(box5.value, box6.value, box7.value, box8.value)" class="submitBtn"> Submit </div>
+            </div>
+        </div>
 
 
-<div class="theForm">  
-    <div id="inputBoxes">
-        Title: <input #box2 (blur) = "setText(box2.value)" type="text" class='input'>
-        <div class='output'> <p class="smallCap"> </p> {{value2_feedback}} <br></div>
+         Login 
+        <div class="theForm">  
+            <div id="inputBoxes">
+                Email: <input #box9 type="text" class='input'>
 
-        Text: <input #box3 (blur) = "setTitle(box3.value)" type="text" class='input'>
-        <div class='output'> <p class="smallCap"> </p> {{value3_feedback}} </div>
-
-        Token: <input #box4 (blur) = "setToken(box4.value)" type="text" class='input'>
-        <div class='output'> <p class="smallCap"> </p> {{value4_feedback}} </div>
-            
-        <div (click)="theForm2(box2.value, box3.value, box4.value)" class="submitBtn"> Submit </div>
-    </div>
-</div>
-
-
-<div class="theForm">  
-    <div id="inputBoxes">
-        Email: <input #box5 type="text" class='input'>
-
-        Password: <input #box6 type="text" class='input'>
-
-        Name: <input #box7 type="text" class='input'>
-
-        Birthday: <input #box8 type="date" class='input'>
-            
-        <div (click)="route6(box5.value, box6.value, box7.value, box8.value)" class="submitBtn"> Submit </div>
-    </div>
-</div>
-
-
-<!-- Login -->
-<div class="theForm">  
-    <div id="inputBoxes">
-        Email: <input #box9 type="text" class='input'>
-
-        Password: <input #box10 type="text" class='input'>
-            
-        <div (click)="route7(box9.value, box10.value)" class="submitBtn"> Login </div>
-    </div>
-</div>
+                Password: <input #box10 type="text" class='input'>
+                    
+                <div (click)="route7(box9.value, box10.value)" class="submitBtn"> Login </div>
+            </div>
+        </div>
+</div> -->
 
         <!-- <div (click)="theForm(box1.value, box2.value, box3.value)" class="submitBtn"> Submit </div> -->
 

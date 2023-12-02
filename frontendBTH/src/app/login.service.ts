@@ -53,9 +53,11 @@ export class LoginService {
     logOut() {
       this.userLoggedOn = false;
       this.response = 'Logged out';
+      this.logoutApi();
     }
 
     // Callback 
+    // Login
     callback1(thisObj, res, result) {
       console.log(result);
       console.log(res);
@@ -84,6 +86,31 @@ export class LoginService {
       }
     }
 
+    // Logout
+    callback2(thisObj, res, result) {
+      console.log(result);
+      console.log(res);
+      // thisObj.response = result.data.msg;
+
+      if (result.data != undefined) {
+        if (result.data.msg != undefined) {
+          thisObj.userLoggedOn = false;
+          thisObj.response = 'User logged off';
+          thisObj.users = {};
+        }
+      }
+
+      if (result.error != undefined) {
+          // thisObj.userLoggedOn = false;
+          thisObj.response = result.error;
+          thisObj.userOn = {};
+          thisObj.users = {name:'error'};
+
+          console.log(thisObj.users)
+      }
+    }
+
+
     // Login
     login(email, password) {
       var url = 'https://me-api.ysojs.se/users/login';
@@ -91,8 +118,20 @@ export class LoginService {
       var token = null;
       var obj1 = this;
       params = {"email":email, "password":password};
+      this.response = '';
 
       this.ApiCallService.fetchCall(params ,url, 'POST', this.callback1, token, obj1);
       this.userOn = {"email":email}
+    }
+
+    logoutApi() {
+      var url = 'https://me-api.ysojs.se/users/logout';
+      var params;
+      var token = null;
+      var obj1 = this;
+      this.response = '';
+
+      this.ApiCallService.fetchCall(params ,url, 'POST', this.callback2, token, obj1);
+      this.userOn = {}
     }
 }

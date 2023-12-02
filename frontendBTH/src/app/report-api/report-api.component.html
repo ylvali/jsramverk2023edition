@@ -1,30 +1,35 @@
-<h1> Reports </h1>
-{{response1}}
 
-<div class="theForm">  
-    <div id="inputBoxes">
-        Week: <input #box1 type="number" class='input'>
-        <div (click)="route1(box1.value)" class="submitBtn"> Submit </div>
-        <div class="response"><p> {{response2}} </p></div>
+<div class="centerColumn">
+    <h1> Reports </h1>
+    {{response1}}
+
+    <div class="theForm">  
+            Week: 
+            <input #box1 type="number" class='input'>
+            <div (click)="route1(box1.value)" class="submitBtn"> Submit </div>
+            <!-- <div class="response"><p> {{response2}} </p></div> -->
     </div>
-</div>
 
-<h2> Reports </h2>
-<div class="reports">  
-    <h3>Title</h3>
-    <p> {{title}} </p>
+    <h2> Reports </h2>
+    <div class="reports">  
+        <h3>Title</h3>
+        <p> {{title}} </p>
 
-    <h3>ReportData</h3>
-    <p>{{reportData}}</p>
-</div>
+        <h3>ReportData</h3>
+        <p>{{reportData}}</p>
+    </div>
 
-<h3> Edit / add </h3>
-<div class="reports">  
-    Title: <input #input1 type="text" class='input' value={{title}}>
-    Text: <textarea id="input2" rows="5" cols="30" value={{reportData}} #input2>{{reportData}}</textarea>
-    <div (click)="route5(input1.value, input2.value)" class="submitBtn"> Add </div>
-    <div (click)="route6(input1.value, input2.value)" class="submitBtn"> Edit </div>
-    <h3>Response</h3>
-    <p>{{response2}}</p>
+    <h3> Edit / add </h3>
+    <div class="reports">  
+        Title: <input #input1 type="text" class='input' value={{title}}><br>
+        Text: <textarea id="input2" rows="5" cols="30" value={{reportData}} #input2>{{reportData}}</textarea><br>
+        <div (click)="route5(input1.value, input2.value)" class="submitBtn"> Add </div>
+        <div (click)="route6(input1.value, input2.value)" class="submitBtn"> Edit </div>
+    </div>
+
+    <div class="reports">  
+        <h2> Response </h2>
+        <p>{{response2}}</p>
+    </div>
 </div>
 

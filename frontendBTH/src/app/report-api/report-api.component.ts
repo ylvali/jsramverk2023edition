@@ -31,7 +31,7 @@ export class ReportAPIComponent {
     // Get token
     ngOnInit(): void {
       this.userOnline();
-      this.route4();
+      this.route4(); 
     }
 
     // If no user online transfer to login
@@ -102,28 +102,30 @@ export class ReportAPIComponent {
 
       this.reportData = '';
       this.title = '';
+      this.response2 = '';
 
       this.ApiCallService.fetchCall(dataObj ,url, 'GET', this.callback, token, obj1);
     }
 
-    // Add data
-    route2(title, data=null) {
-      console.log('Title:'+title);
-      console.log('Data:'+data);
+    // // Add data
+    // route2(title, data=null) {
+    //   console.log('Title:'+title);
+    //   console.log('Data:'+data);
+    //   this.response2 = '';
 
-      this.reportData = data;
-      this.title = title;
-    }
+    //   this.reportData = data;
+    //   this.title = title;
+    // }
 
-    // Edit data
-    route3(title, data=null, data2=null) {
-      console.log('Title:'+title);
-      console.log('Data:'+data);
-      console.log('Data:'+data2);
+    // // Edit data
+    // route3(title, data=null, data2=null) {
+    //   console.log('Title:'+title);
+    //   console.log('Data:'+data);
+    //   console.log('Data:'+data2);
 
-      this.reportData = data;
-      this.title = title;
-    }
+    //   this.reportData = data;
+    //   this.title = title;
+    // }
 
     // Get token
     route4() {
@@ -150,6 +152,7 @@ export class ReportAPIComponent {
       var url = 'https://me-api.ysojs.se/reports/add';
       var obj1 = this;
       var params = {"title":title, "data1":text};
+      this.response2 = ''; // Empty response text
       this.ApiCallService.fetchCall(params, url, 'POST', this.callback3, token, obj1);
     }
 
@@ -159,6 +162,7 @@ export class ReportAPIComponent {
       var url = 'https://me-api.ysojs.se/reports/edit';
       var obj1 = this;
       var params = {"title":title, "data1":text};
+      this.response2 = ''; // Empty response text
       this.ApiCallService.fetchCall(params, url, 'POST', this.callback3, token, obj1);
     }
 }

@@ -49,6 +49,14 @@ html {
   padding: 3px;
 }
 
+.output1 {
+  font-size: 0.9em;
+  color: rgb(98, 145, 116);
+  text-align: right;
+  width: 80%;
+  padding: 3px;
+}
+
 #birthDay {
   width: 100%;
   margin: 0 auto;
@@ -64,10 +72,10 @@ html {
 
 .changeDate {
   cursor: pointer;
-  font-size: 1.2em;
-  width: 15px;
+  font-size: 2em;
+  width: 35px;
   border-radius: 20px;
-  background-color: gray;
+  background-color: #489172;
   margin: 0 auto;
 }
 
@@ -81,7 +89,7 @@ html {
 .submitBtn {
   clear: both;
   margin: 0 auto;
-  background-color:  red;
+  background-color: #489172;
   width: 25%;
   padding: 20px;
   letter-spacing: 2px;
@@ -97,9 +105,9 @@ html {
 }
 
 #inputPres {
-  width: 100%;
+  /* width: 100%; */
   min-height: 200px;
-  background-color: white;
+  background-color: #496d89;
   padding: 20px;
   text-align: center;
   font-size: 1.5em;
@@ -164,6 +172,8 @@ html {
       float: none;
       margin: 0 auto;
       width: 50%;
+      background-color: #0F5738;
+      border-radius: 24px;
     }
 
 }

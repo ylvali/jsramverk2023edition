@@ -1,5 +1,3 @@
-  <h1> ::: Form ::: </h1>
-
 
 
 <div id="theForm">
@@ -9,14 +7,19 @@
       <h2> Register a new user </h2>
 
       <div id="inputBoxes">
-          Name: <input #box1 (blur) = "checkValueString(box1.value)" type="text" class='input'>
-          <div class='output'> <p class="smallCap"> Letters & space, english alphabet </p> {{value1_feedback}} <br/> <br/> </div>
-          E-mail: <input #box2 (blur) = "checkForEmail(box2.value)" type="text" class='input'>
-          <div class='output'> <p class="smallCap"> Standard email format </p> {{value2_feedback}} <br/> <br/> </div>
-          Password: <input #box3 (blur) = "checkThePassword(box3.value)" type="password" class='input'>
-          <div class='output'> <p class="smallCap"> Letters & numbers only </p> {{value3_feedback}} <br/> <br/> </div>
-        <br/>  Birthday:
-        <div class='output'> <p class="smallCap"> Choose your bday by clicking the sign buttons below. </p> </div>
+          Name: <input #box1 (blur) = "checkValueString(box1.value)" type="text" class='input'> 
+          <div class='output1'> <p class="smallCap"> Letters & space, english alphabet </p><br> </div>
+          <div class='output'>{{value1_feedback}} </div> <br> 
+
+          E-mail: <input #box2 (blur) = "checkForEmail(box2.value)" type="text" class='input'><br>
+          <div class='output1'> <p class="smallCap"> Standard email format </p> </div>
+          <div class='output'>{{value2_feedback}} </div> <br> 
+
+          Password: <input #box3 (blur) = "checkThePassword(box3.value)" type="password" class='input'><br>
+          <div class='output1'> <p class="smallCap"> Letters & numbers only </p> </div>
+          <div class='output'>{{value3_feedback}} </div> 
+        <br>  Birthday:
+        <div class='output1'> <p class="smallCap"> Choose your birthday by clicking the sign buttons below. </p> </div>
       </div>
 
       <div id="birthDay">

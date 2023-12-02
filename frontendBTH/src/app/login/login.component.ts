@@ -23,7 +23,7 @@ export class LoginComponent {
 
     logOut() {
       this.LoginService.logOut();
-      this.getResponse();
+      this.response = 'logged out';
     }
 
     login(email, password) {

@@ -1,0 +1,89 @@
+
+
+.centerColumn {
+    background-color: #708DA4;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 550px;
+    padding: 5%;
+}
+
+.reports {
+    clear: both;
+    width: 100%; 
+    padding-top: 3%;
+}
+
+.theForm {
+    font-family: inherit;
+    font-size: 100%;
+    width: 80%;
+    margin: 0 auto;
+    max-width: 700px;
+    list-style: none;
+    padding: 8%;
+    text-align: center;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 5%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); */
+}
+
+.submitBtn {
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+    
+    float: left;
+    min-width: 100px;
+    margin: 0 auto;
+    background-color: rgb(187, 219, 187);
+    color: black;
+    width: 15%;
+    padding: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 25px;
+    margin-top: 5%;
+    cursor: pointer;
+    text-align:center;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #708DA4;
+    border-radius: 4px;
+    resize: vertical;
+    outline: none;
+  }
+
+input[type=number], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #708DA4;
+    border-radius: 4px;
+    resize: vertical;
+    outline: none;
+}
+
+input[type=text]:hover {
+    background-color: #beddcf;
+
+    outline: none;
+}
+
+input[type=text]:focus {
+    background-color: #74AE95;
+    border: 1px solid #708DA4;
+    outline: none;
+}
+
+input,
+textarea,
+select,
+button {
+  /* width: 150px;  */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
