@@ -16,7 +16,7 @@ const bodyParser = require("body-parser");
 
 // Express app
 const app = express();
-const port = 8334;
+const port = 8333;
 //console.log('Running on port' +port);
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded

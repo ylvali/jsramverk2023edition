@@ -203,8 +203,8 @@ router.post("/add",
         console.log('Add report');
         console.log(req.body); // Gets the req body
 
-        if (!req.body.data1 || !req.body.title) {
-            res.status(400).json({"error":'no title / data'});
+        if (!req.body.title) {
+            res.status(400).json({"error":'no title'});
             return;
         }
 

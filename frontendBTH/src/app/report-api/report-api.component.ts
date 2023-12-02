@@ -92,6 +92,23 @@ export class ReportAPIComponent {
       }
     }
 
+    // Register a text & edit a text
+    callback4(thisObj, res, result) { 
+      console.log('Callback4');
+      console.log(result);
+    
+      if (result.data != undefined) {
+        if (result.data.msg != undefined) {
+          thisObj.response2 = result.data.msg;
+          // thisObj.router.navigate(['seeReports']);
+        }
+      }
+      if (result.error != undefined) {
+          thisObj.response2 = result.error;
+          thisObj.response2 = 'Not completed';
+      }
+    }
+
     // ROUTES
     // Display text from week nr
     route1(weekNr) {
@@ -164,5 +181,15 @@ export class ReportAPIComponent {
       var params = {"title":title, "data1":text};
       this.response2 = ''; // Empty response text
       this.ApiCallService.fetchCall(params, url, 'POST', this.callback3, token, obj1);
+    }
+
+    // Delete a text
+    route7 (title, data='-', token=this.token) {
+      console.log('Delete title: '+title);
+      var url = 'https://me-api.ysojs.se/reports/delete';
+      var obj1 = this;
+      var params = {"title":title, "data1":data};
+      this.response2 = ''; // Empty response text
+      this.ApiCallService.fetchCall(params, url, 'POST', this.callback4, token, obj1);
     }
 }

@@ -8,7 +8,6 @@ import { ReportComponent } from './reports/report.component';
 import { Report2Component } from './report2/report2.component';
 import { AboutComponent } from './about/about.component';
 import { FormComponent } from './form/form.component';
-import { HttpReqComponent } from './http-req/http-req.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ApiConnectComponent } from './api-connect/api-connect.component';
@@ -37,7 +36,6 @@ const appRoutes: Routes = [
     Report2Component,
     AboutComponent,
     FormComponent,
-    HttpReqComponent,
     ApiConnectComponent,
     LoginComponent,
     ReportsComponent,

@@ -25,11 +25,12 @@
         Text: <textarea id="input2" rows="5" cols="30" value={{reportData}} #input2>{{reportData}}</textarea><br>
         <div (click)="route5(input1.value, input2.value)" class="submitBtn"> Add </div>
         <div (click)="route6(input1.value, input2.value)" class="submitBtn"> Edit </div>
+        <div (click)="route7(input1.value)" class="submitBtn"> Delete </div>
     </div>
 
     <div class="reports">  
         <h2> Response </h2>
-        <p>{{response2}}</p>
+        <!-- <p>{{response2}}</p> -->
     </div>
 </div>
 
