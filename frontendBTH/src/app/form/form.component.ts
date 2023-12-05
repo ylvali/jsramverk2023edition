@@ -49,11 +49,14 @@ export class FormComponent {
 
   date = new Date();
   theYear = this.date.getFullYear();
-  theSelectedYear = this.theYear;
+  // theSelectedYear = this.theYear;
+  theSelectedYear = 2000;
   theMonth = this.date.getMonth();
-  theSelectedMonth = this.theMonth;
+  // theSelectedMonth = this.theMonth;
+  theSelectedMonth = 1;
   theDay = this.date.getDay();
-  theSelectedDay = this.theDay;
+  // theSelectedDay = this.theDay;
+  theSelectedDay = 1;
 
   theSelectedDate = new Date(this.theSelectedYear, this.theSelectedMonth, this.theSelectedDay);
 

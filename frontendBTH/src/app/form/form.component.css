@@ -25,7 +25,7 @@ html {
   min-height: 600px;
   background-color: black;
   margin: 0 auto;
-  padding: 40px;
+  padding: 5%;
 }
 
 #inputBoxes {
@@ -84,6 +84,7 @@ html {
 }
 
 #lastBox {
+  background-color: black;
 }
 
 .submitBtn {
@@ -113,11 +114,59 @@ html {
   font-size: 1.5em;
 }
 
-
 .smallCap {
   font-size: 0.7em;
   text-transform: uppercase;
 }
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #708DA4;
+  border-radius: 4px;
+  resize: vertical;
+  outline: none;
+}
+
+input[type=number], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #708DA4;
+  border-radius: 4px;
+  resize: vertical;
+  outline: none;
+}
+
+input[type=date], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #708DA4;
+  border-radius: 4px;
+  resize: vertical;
+  outline: none;
+}
+
+input[type=password], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #708DA4;
+  border-radius: 4px;
+  resize: vertical;
+  outline: none;
+}
+
+input[type=text]:hover {
+  background-color: #beddcf;
+
+  outline: none;
+}
+
+input[type=text]:focus {
+  background-color: #74AE95;
+  border: 1px solid #708DA4;
+  outline: none;
+}
+
 
 
 
@@ -125,7 +174,7 @@ html {
 @media screen and (max-width: 1000px) {
 
 #theForm {
-  width: 90%;
+  width: 100%;
   height: auto;
 }
 
@@ -138,13 +187,18 @@ html {
   width: 70%;}
 }
 
+#birthDay p {
+  background-color: black;
+  border-radius: 24px;
+}
+
 
 
 @media screen and (max-width: 550px) {
 
   #textLayer {
     min-height: 550px;
-    padding: 30px;
+    width: 80%;
   }
 }
 
@@ -152,9 +206,8 @@ html {
 @media screen and (max-width: 450px) {
 
     #textLayer {
-      min-height: 550px;
-      padding: 30px;
-      width: 90%;
+      min-height: 550px; 
+      width: 80%;
     }
 
     #inputBoxes {
@@ -172,7 +225,7 @@ html {
       float: none;
       margin: 0 auto;
       width: 50%;
-      background-color: #0F5738;
+      background-color: black;
       border-radius: 24px;
     }
 

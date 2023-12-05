@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build && rsync -av dist/my-app/* root@104.248.170.86:/var/www/jsframeworks.ysojs.se/html/",
+    "publish": "rsync -av dist/my-app/* root@104.248.170.86:/var/www/jsframeworks.ysojs.se/html/"
+
   },
   "private": true,
   "dependencies": {

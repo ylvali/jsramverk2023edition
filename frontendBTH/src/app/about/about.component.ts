@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import { ApiCallService } from '../api-call.service';
 
+import { NgOptimizedImage } from '@angular/common'
+
 
 @Component({
   selector: 'app-about',
@@ -20,7 +22,7 @@ export class AboutComponent {
   response1 = '';
   title1 = 'Project'; 
   title2 = 'Introduction'; 
-  data1 = 'Welcome to this page - dedicated to testing building a web application. "Application software, computer software designed to help the user to perform specific tasks" - Wikipedia <br> Backend : Nodejs & Express. <br> Frontend : Angular ';
+  data1 = 'Welcome to this page - dedicated to testing building a web application. <br><b>"Application software, computer software designed to help the user to perform specific tasks" </b><br> Wikipedia <br><br> Backend : Nodejs & Express. <br> Frontend : Angular ';
 
   // THE CALLBACKS
   callback1(thisObj, res, result) {

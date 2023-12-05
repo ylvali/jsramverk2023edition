@@ -164,13 +164,12 @@ router.post("/add",
                  res.json(data);
               }
         });
-
     }
 
     router.post("/delete", 
     (req, res, next) => checkToken(req, res, next),
     (req, res) => deleteReport(req, res));
-    console.log('Delete report')
+    console.log('Delete report');
 
 
     function checkToken(req, res, next) {
