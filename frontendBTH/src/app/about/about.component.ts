@@ -22,7 +22,7 @@ export class AboutComponent {
   response1 = '';
   title1 = 'Project'; 
   title2 = 'Introduction'; 
-  data1 = 'Welcome to this page - dedicated to building a web application at BTH - Blekinge Technical Institute. <br><br><b>"Application software, computer software designed to help the user to perform specific tasks" </b> Wikipedia <br><br> Backend : Nodejs & Express. <br> Frontend : Angular ';
+  data1 = 'Welcome to this page - dedicated to building a web application at BTH - Blekinge Technical Institute. <br><b>"Application software, computer software designed to help the user to perform specific tasks" </b> Wikipedia <br> Backend : Nodejs & Express. <br> Frontend : Angular ';
 
   // THE CALLBACKS
   callback1(thisObj, res, result) {
