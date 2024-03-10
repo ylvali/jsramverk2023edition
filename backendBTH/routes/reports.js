@@ -12,8 +12,10 @@ router.use(bodyParser.json()); // for parsing application/json
 router.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // Use database & run it
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./db/texts.sqlite');
+// const sqlite3 = require('sqlite3').verbose();
+// const db = new sqlite3.Database('./db/texts.sqlite');
+//const sqlite3 = require('sqlite3').verbose();
+const db = require("../db/database.js");
 
 // Route : show all reports
 router.get('/all', function(req, res, next) {
@@ -169,7 +171,7 @@ router.post("/add",
     router.post("/delete", 
     (req, res, next) => checkToken(req, res, next),
     (req, res) => deleteReport(req, res));
-    console.log('Delete report');
+    // console.log('Delete report');
 
 
     function checkToken(req, res, next) {

@@ -1,15 +1,11 @@
 {
   "name": "me-api",
   "version": "1.0.0",
-  "description": "jsramverkBTH(course2019Completed2024)",
+  "description": "jsramverkV2023(course2019)",
   "main": "index.js",
   "scripts": {
-    "pretest": "bash db/reset_test_db.bash",
-    "test": "nyc --reporter=html --reporter=text mocha 'test/**/*.js'",
-    "prestart": "bash start.bash",
-    "start": "node app.js",
-    "posttest": "npm run eslint",
-    "eslint": "eslint .",
+    "test": "nyc --reporter=html --reporter=text --reporter=clover mocha --timeout 10000 'test/**/*.js'",
+    "start": "nodemon app.js",
     "clean": "rm -rf node_modules package-lock.json",
     "process": "pm2 start app.js --name me-api",
     "stopProcess": "pm2 stop app.js --name me-api",
@@ -26,12 +22,12 @@
     "sqlite3": "^5.1.6"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "chai-http": "^4.2.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.0",
-    "javascript-style-guide": "^1.0.1",
-    "mocha": "^5.2.0",
-    "nyc": "^13.3.0"
+    "chai": "^5.1.0",
+    "chai-http": "^4.4.0",
+    "mocha": "^10.3.0",
+    "nyc": "^15.1.0"
   }
+  
 }
+
+

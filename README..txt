@@ -21,11 +21,21 @@ Or, via a process manager that is kept open without interruption
 pm2 process manager
 pm2 start app.js --name me-api
 
-GET
-/ 		: intro
-/hello/msg		: test
+KEY
+Must set a key for the environment : 
+export JWT_SECRET='secretKey' : or some functionality will not work. 
 
-/token 		:token
+//Example:
+//localhost:8333/users/allUsers
+//me-api.ysojs.se/users/allLoggedOn
+
+
+GET
+/ 		            : intro
+/hello      	    : hello world
+/hello/msg		    : test
+
+/token 		        : token
 /reports/week/:nr	: reports per week
 /reports/all		: all reports
 
@@ -37,7 +47,7 @@ POST
 /users/logout		: logs out all users
 /users/register	    : register a new user (body email, password, name, birthday)
 /users/login		: login (body email & password)
-
+/verifyToken        : verify the token (header, token)
 
 -- frontendBTH directory --
 Frontend Angular

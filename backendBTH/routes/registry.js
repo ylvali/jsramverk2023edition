@@ -11,8 +11,13 @@ router.use(bodyParser.json()); // for parsing application/json
 router.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // Use database & run it
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./db/texts.sqlite');
+//const sqlite3 = require('sqlite3').verbose();
+//const db = new sqlite3.Database('./db/tests.sqlite');
+
+// Use a testdb if in test mode 
+const db = require("../db/database.js");
+// console.log(db);
+
 
 // Crypting passwords
 const bcrypt = require('bcryptjs');
@@ -29,17 +34,6 @@ const saltRounds = 5; // The more rounds, the more difficult password
     (required: email & password 
 */
 
-router.post('/', function(req, res, next) {
-    console.log('Register a user');
-
-    const data = {
-        data: {
-            msg: 'The registry'
-        }
-    };
-
-    res.json(data);
-});
 
 // Show all users
 // Guide & inspiration: https://developerhowto.com/2018/12/29/build-a-rest-api-with-node-js-and-express-js/
