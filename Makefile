@@ -10,3 +10,6 @@ help:
 # Another make target
 hello:
 	@echo "Hello World in a makefile using make."
+
+test:
+	@echo 'testing is important'
